@@ -1,6 +1,4 @@
 import React from 'react'
-import './Car.css'
-
 
 const Footer = () => {
 	return (

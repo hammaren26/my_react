@@ -6,27 +6,3 @@ img {
   max-width: 80%;
   margin: 0 auto;
 }
-
-.header {
-  background: grey;
-  display: flex;
-  justify-content: space-between;
-  padding: 5px 10px 5px;
-  margin-bottom: 10px;
-
-  &__logo {
-    width: 150px;
-  }
-}
-
-.nav {
-  float: left;
-  height: 100%;
-  background: grey;
-  width: 28%;
-}
-
-.content {
-  background: grey;
-  margin-left: 29%;
-}

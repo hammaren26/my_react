@@ -1,0 +1,11 @@
+.header {
+    background: grey;
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 10px 5px;
+    margin-bottom: 10px;
+
+&__logo {
+     width: 150px;
+ }
+}
