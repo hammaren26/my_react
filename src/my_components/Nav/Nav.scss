@@ -1,6 +1,37 @@
 .nav {
-    float: left;
-    height: 100%;
-    background: grey;
-    width: 28%;
+  float: left;
+  background: grey;
+  width: 28%;
+  padding: 10px 0;
+}
+
+.item a {
+  display: inline-block;
+  font-size: 16px;
+  color: #cdd8e4;
+  text-decoration: none;
+  padding: 1em 1.5em;
+  outline: none;
+  border-right: 1px solid rgba(13, 20, 27, 0.5);
+  border-top: 1px solid rgba(255, 255, 255, 0.01);
+  background-color: #404952;
+  background-image: radial-gradient(1px 60% at 0% 50%, rgba(255, 255, 255, 0.3), transparent), radial-gradient(1px 60% at 100% 50%, rgba(255, 255, 255, 0.3), transparent), linear-gradient(#404952, #48515a);
+  margin-bottom: 10px;
+}
+
+.item a:hover {
+  background-image: radial-gradient(1px 60% at 0% 50%, rgba(255, 255, 255, .3), transparent),
+  radial-gradient(1px 60% at 100% 50%, rgba(255, 255, 255, .3), transparent),
+  linear-gradient(rgb(51, 60, 67), rgb(58, 65, 72));
+}
+
+.item a.active {
+  color: rgb(245, 247, 250);
+  border-top: 1px solid rgb(67, 111, 136);
+  background-image: linear-gradient(rgb(46, 95, 122), rgb(36, 68, 92));
+}
+
+.item a.active:hover {
+  border-top: 1px solid rgb(49, 87, 107);
+  background-image: linear-gradient(rgb(33, 77, 98), rgb(29, 57, 77));
 }

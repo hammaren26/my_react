@@ -1,3 +1,7 @@
+html {
+  background-color: darkslategrey;
+}
+
 img {
   width: 100%;
 }
@@ -5,4 +9,9 @@ img {
 .app_wrapper {
   max-width: 80%;
   margin: 0 auto;
+}
+
+.app_wrapper_content {
+  background: grey;
+  margin-left: 29%;
 }

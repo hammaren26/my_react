@@ -1,0 +1,24 @@
+.dialogs {
+  display: flex;
+  padding: 10px;
+  text-align: left;
+}
+
+.dialogs_items {
+  width: 50%;
+
+  .dialogs_item {
+    &.active {
+      color: darkred;
+    }
+  }
+}
+
+.messages {
+  width: 50%;
+
+  .message {
+    border: 1px solid red;
+    text-align: center;
+  }
+}

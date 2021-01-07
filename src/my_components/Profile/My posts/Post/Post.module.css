@@ -1,3 +1,13 @@
+.item {
+    border-bottom: 1px dashed darkred;
+    margin-bottom: 10px;
+}
+
 .item.active {
     color: yellow;
+}
+
+span {
+    display: inline-block;
+    margin: 0 5px;
 }
