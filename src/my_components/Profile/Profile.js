@@ -3,11 +3,15 @@ import MyPosts from "./My posts/MyPosts";
 import ProfileInfo from "./ProfileInfo/ProfileInfo";
 
 
-export default function Profile() {
+export default function Profile(props) {
     return (
         <div>
             <ProfileInfo/>
-            <MyPosts/>
+            <MyPosts
+                postsData={props.postsData}
+                newPostText={props.newPostText}
+                dispatch={props.dispatch}
+            />
         </div>
     );
 }

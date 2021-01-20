@@ -10,17 +10,29 @@ import Music from "./my_components/Music/Music";
 import Settings from './my_components/Settings/Settings'
 
 import {BrowserRouter, Route} from "react-router-dom";
+import store from "./Redux/state";
 
 
-const App = () => {
+const App = (props) => {
     return (
         <BrowserRouter>
             <div className='app_wrapper'>
                 <Header/>
                 <Nav/>
                 <div className='app_wrapper_content'>
-                    <Route exact path='/profile' component={Profile}/>
-                    <Route exact path='/dialogs' component={Dialogs}/>
+                    <Route exact path='/profile' render={() => {
+                        return <Profile
+                                    postsData={props.state.profilePage.postsData}
+                                    newPostText={props.state.profilePage.newPostText}
+                                    dispatch={props.dispatch}
+                                />
+                    }}/>
+                    <Route exact path='/dialogs' render={() => {
+                        return <Dialogs
+                            dialogsData={props.state.messagesPage.dialogsData}
+                            messagesData={props.state.messagesPage.messagesData}
+                        />
+                    }}/>
                     <Route exact path='/news' component={News}/>
                     <Route exact path='/music' component={Music}/>
                     <Route exact path='/settings' component={Settings}/>
