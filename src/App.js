@@ -1,38 +1,31 @@
-import React, {Component} from 'react'
-import './App.scss'
-import Header from './my_components/Header/Header.js'
-import Nav from './my_components/Nav/Nav.js'
-import Footer from './my_components/Footer/Footer.js'
-import Profile from './my_components/Profile/Profile.js'
-import Dialogs from "./my_components/Dialogs/Dialogs";
+import React from 'react';
+import './App.scss';
+import Nav from './my_components/Nav/Nav.js';
+import Footer from './my_components/Footer/Footer.js';
 import News from "./my_components/News/News";
 import Music from "./my_components/Music/Music";
 import Settings from './my_components/Settings/Settings'
+import DialogsContainer from "./my_components/Dialogs/DialogsContainer";
+import UsersContainer from "./my_components/Users/UsersContainer";
+import ProfileContainer from "./my_components/Profile/ProfileConatainer";
 
 import {BrowserRouter, Route} from "react-router-dom";
-import store from "./Redux/state";
-
+import HeaderContainer from "./my_components/Header/HeaderContainer";
 
 const App = (props) => {
     return (
         <BrowserRouter>
             <div className='app_wrapper'>
-                <Header/>
+                <HeaderContainer/>
                 <Nav/>
                 <div className='app_wrapper_content'>
-                    <Route exact path='/profile' render={() => {
-                        return <Profile
-                                    postsData={props.state.profilePage.postsData}
-                                    newPostText={props.state.profilePage.newPostText}
-                                    dispatch={props.dispatch}
-                                />
-                    }}/>
-                    <Route exact path='/dialogs' render={() => {
-                        return <Dialogs
-                            dialogsData={props.state.messagesPage.dialogsData}
-                            messagesData={props.state.messagesPage.messagesData}
-                        />
-                    }}/>
+                    <Route
+                        path='/profile/:userId?'
+                        render={ () => <ProfileContainer/> }
+                    />
+                    <Route exact path='/dialogs' render={() => <DialogsContainer/>}/>
+                    <Route exact path='/users' render={() => <UsersContainer/>}/>
+
                     <Route exact path='/news' component={News}/>
                     <Route exact path='/music' component={Music}/>
                     <Route exact path='/settings' component={Settings}/>

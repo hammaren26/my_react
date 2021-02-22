@@ -1,0 +1,25 @@
+.usersLogo {
+  width: 100px;
+}
+
+.paginationItem {
+  display: inline-block;
+  background-color: #cdd8e4;
+  opacity: .5;
+  padding: 5px;
+  cursor: default;
+  font-size: 20px;
+  font-weight: bold;
+  transition: all .2s;
+  margin: 5px;
+  width: 40px;
+
+  &:hover {
+    color: green;
+    opacity: 1;
+  }
+
+  &.selected {
+    color: green;
+  }
+}

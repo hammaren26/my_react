@@ -1,11 +1,20 @@
 import React from 'react'
+import Preloader from "../../common/preloader/Preloader";
 
 
-export default function ProfileInfo() {
+export default function ProfileInfo(props) {
+    if (!props.profile) {
+        return <Preloader/>
+    }
+
     return (
-            <div className='content__head'>
-                <img src="http://dummyimage.com/800x600/4d494d/686a82.gif&text=placeholder+image"
-                     alt="placeholder+image"/>
+        <div className='content__head'>
+            <img src={props.profile.photos.large}
+                 alt="placeholder+image"
+            />
+            <div>
+                Статус: {props.profile.aboutMe}
             </div>
+        </div>
     );
 }

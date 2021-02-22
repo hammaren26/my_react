@@ -1,7 +1,8 @@
-import React from 'react'
-import s from './MyPosts.module.scss'
+import React from 'react';
+import s from './MyPosts.module.scss';
 import Post from "./Post/Post";
-import {item, active} from './Post/Post.module.css'
+import {item, active} from './Post/Post.module.css';
+
 
 export default function MyPosts(props) {
 
@@ -9,18 +10,14 @@ export default function MyPosts(props) {
     let newPostElement = React.createRef();
 
 
-    let addPost = () => {
-        props.dispatch({
-            type: 'ADD_POST'
-        });
+    let onAddPost = () => {
+        props.addPost();
     }
 
-    let updateNewPostText = () => {
+
+    let onUpdateNewPostText = () => {
         let text = newPostElement.current.value;
-        props.dispatch({
-            type: 'UPDATE_NEW_POST_TEXT',
-            newText: text
-        });
+        props.updateNewPostText(text);
     }
     return (
         <div className={s.posts}>
@@ -30,7 +27,7 @@ export default function MyPosts(props) {
             {posts}
             <div>
                 <textarea
-                    onChange={updateNewPostText}
+                    onChange={onUpdateNewPostText}
                     ref={newPostElement}
                     cols="30"
                     rows="10"
@@ -38,7 +35,7 @@ export default function MyPosts(props) {
                 />
             </div>
             <div>
-                <button onClick={addPost}>
+                <button onClick={onAddPost}>
                     Add post
                 </button>
             </div>
