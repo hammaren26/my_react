@@ -2,7 +2,6 @@ import React from 'react';
 import s from "./Users.module.scss";
 import userPhoto from "../../assets/images/16.jpg";
 import {NavLink} from "react-router-dom";
-import * as axios from "axios";
 
 
 let Users = (props) => {
@@ -49,50 +48,30 @@ let Users = (props) => {
                                         />
                                     </NavLink>
                                 </div>
-                                <div> {
-                                    user.followed
-                                        ? <button onClick={
-                                            () => {
-                                                let base_url = `https://social-network.samuraijs.com/api/1.0/follow/${user.id}`;
-                                                axios.delete(base_url, {
-                                                    withCredentials: true,
-                                                    headers: {
-                                                        "API-KEY": "ace3cadb-a0de-40a5-831b-91417c9feabb"
-                                                    }
-                                                }).then(response => {
-                                                    if (response.data.resultCode === 0) {
-                                                        props.unfollow(user.id)
-                                                    }
-                                                })
-                                            }
-                                        }>
-                                            Unfollow
-                                        </button>
-                                        : <button
-                                            onClick={
-                                                () => {
-                                                    let base_url = `https://social-network.samuraijs.com/api/1.0/follow/${user.id}`;
-                                                    axios.post(base_url, {}, {
-                                                        withCredentials: true,
-                                                        headers: {
-                                                            "API-KEY": "ace3cadb-a0de-40a5-831b-91417c9feabb"
-                                                        }
-                                                    }).then(response => {
-                                                        if (response.data.resultCode === 0) {
-                                                            props.follow(user.id);
-                                                        }
-                                                    })
-                                                }
-                                            }>
-                                            Follow
-                                        </button>
-                                }
-                                        </div>
-                            </span>
+                                <div>
+                                    {
+                                        user.followed
+                                            ? <button
+                                                disabled={props.followingInProgress.some(id => id === user.id)}
+                                                onClick={() => {props.unfollow(user.id)}}
+                                              >
+                                                Unfollow
+                                              </button>
+
+                                            : <button
+                                                disabled={props.followingInProgress.some(id => id === user.id)}
+                                                onClick={() => {props.follow(user.id)}}
+                                              >
+                                                Follow
+                                              </button>
+                                    }
+                                </div>
+                                    </span>
                             <div>
                                 <div>
                                     <div>{user.name}</div>
-                                    <div>{user.status}</div>
+                                    <div>Статус: {user.status}</div>
+                                    <div>Айдишник: {user.id}</div>
                                 </div>
                                 <div>
                                     <div>{'user.location.country'}</div>

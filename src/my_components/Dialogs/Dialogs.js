@@ -2,11 +2,24 @@ import React from 'react';
 import s from './Dialogs.module.scss';
 import DialogItem from "./Dialog/Dialog";
 import Message from "./Message/Message";
+import {Field, reduxForm} from "redux-form";
 
+
+export const AddMessageForm = (props) => {
+    return (
+        <form onSubmit={props.handleSubmit}>
+            <Field component='textarea' name='newMessageElement' placeholder='Enter your message'/>
+            <button>Add message</button>
+        </form>
+    )
+}
+
+const MessageReduxForm = reduxForm({
+    form: 'dialogAddMessageForm'
+})(AddMessageForm);
 
 const Dialogs = (props) => {
 
-    let newMessageElement = React.createRef();
     let dialogsElements = props.dialogsData.map(dialog => {
         return (
             <DialogItem
@@ -25,14 +38,19 @@ const Dialogs = (props) => {
         )
     });
 
-    let addMessage = () => {
-        let text = newMessageElement.current.value;
-        props.addMessage(text);
-    }
+    // let addMessage = () => {
+    //     let text = newMessageElement.current.value;
+    //     props.addMessage(text);
+    // }
+    //
+    // let updateNewMessageText = () => {
+    //     let text = newMessageElement.current.value;
+    //     props.updateNewMessageText(text);
+    // }
 
-    let updateNewMessageText = () => {
-        let text = newMessageElement.current.value;
-        props.updateNewMessageText(text);
+    let addNewMessage = (values) => {
+        console.log(values)
+        props.addMessage(values.newMessageElement);
     }
 
     return (
@@ -44,17 +62,7 @@ const Dialogs = (props) => {
             <div className={s.messages}>
                 {messagesElements}
             </div>
-
-            <div>
-                <textarea
-                    ref={newMessageElement}
-                    cols="30"
-                    rows="10"
-                    onChange={updateNewMessageText}
-                    value={props.newMessageText}
-                />
-                <button onClick={addMessage}>Add message</button>
-            </div>
+            <MessageReduxForm onSubmit={addNewMessage}/>
         </div>
     );
 }

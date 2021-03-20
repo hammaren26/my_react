@@ -5,7 +5,10 @@ import s from './Preloader.module.scss';
 let Preloader = (props) => {
     return (
         <div className={s.preloader_box}>
-            <img src={loaderGif} className={s.preloader_img}/>
+            <img
+                src={loaderGif} className={s.preloader_img}
+                alt='preloader'
+            />
         </div>
 
     )

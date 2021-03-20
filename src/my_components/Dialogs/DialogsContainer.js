@@ -1,8 +1,7 @@
-import React from 'react'
-import {addNewMessageCreator, updateMessageActionCreator} from "../../Redux/dialogs-reducer";
+import {addNewMessageCreator} from "../../Redux/dialogs-reducer";
 import Dialogs from "./Dialogs";
 import {connect} from "react-redux";
-
+import {compose} from "redux";
 
 // const DialogsContainer = () => {
 //     return (
@@ -45,18 +44,18 @@ let mapStateToProps = (state) => {
 
 let mapDispatchToProps = (dispatch) => {
     return {
-        updateNewMessageText: (text) => {
-            dispatch(updateMessageActionCreator(text));
-        },
         addMessage: (text) => {
             if (text.length > 0) {
-                dispatch(addNewMessageCreator());
+                dispatch(addNewMessageCreator(text));
             }
         }
     }
 }
 
 
-const DialogsContainer = connect(mapStateToProps, mapDispatchToProps)(Dialogs);
+let DialogsContainer = compose(connect(mapStateToProps, mapDispatchToProps))(Dialogs);
+
+// let AuthRedirectComponent = withAuthRedirect(Dialogs);
+// const DialogsContainer = connect(mapStateToProps, mapDispatchToProps)(AuthRedirectComponent);
 
 export default DialogsContainer;
