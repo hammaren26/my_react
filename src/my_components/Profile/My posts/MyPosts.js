@@ -6,9 +6,6 @@ import {Field, reduxForm} from "redux-form";
 import {requiredField} from "../../../Utils/Validators/validator";
 import {Textarea} from "../../common/FormsControls/FormsControls";
 
-
-// const maxLength10 = maxLengthCreator(10);
-
 let AddNewPostForm = (props) => {
     return (
         <form onSubmit={props.handleSubmit}>

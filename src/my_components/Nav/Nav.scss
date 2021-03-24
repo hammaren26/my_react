@@ -5,7 +5,7 @@
   padding: 10px 0;
 }
 
-.item a {
+.nav_item a {
   display: inline-block;
   font-size: 16px;
   color: #cdd8e4;
@@ -19,19 +19,19 @@
   margin-bottom: 10px;
 }
 
-.item a:hover {
+.nav_item a:hover {
   background-image: radial-gradient(1px 60% at 0% 50%, rgba(255, 255, 255, .3), transparent),
   radial-gradient(1px 60% at 100% 50%, rgba(255, 255, 255, .3), transparent),
   linear-gradient(rgb(51, 60, 67), rgb(58, 65, 72));
 }
 
-.item a.active {
+.nav_item a.activeLink {
   color: rgb(245, 247, 250);
   border-top: 1px solid rgb(67, 111, 136);
   background-image: linear-gradient(rgb(46, 95, 122), rgb(36, 68, 92));
 }
 
-.item a.active:hover {
+.nav_item a.activeLink:hover {
   border-top: 1px solid rgb(49, 87, 107);
   background-image: linear-gradient(rgb(33, 77, 98), rgb(29, 57, 77));
 }

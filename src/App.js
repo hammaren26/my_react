@@ -5,7 +5,7 @@ import Footer from './my_components/Footer/Footer.js';
 import News from "./my_components/News/News";
 import Music from "./my_components/Music/Music";
 import Settings from './my_components/Settings/Settings'
-import DialogsContainer from "./my_components/Dialogs/DialogsContainer";
+import  DialogsContainer from "./my_components/Dialogs/DialogsContainer";
 import UsersContainer from "./my_components/Users/UsersContainer";
 import ProfileContainer from "./my_components/Profile/ProfileConatainer";
 import {BrowserRouter, Route} from "react-router-dom";
@@ -42,7 +42,7 @@ class App extends React.Component {
                         <Route exact path='/news' component={News}/>
                         <Route exact path='/music' component={Music}/>
                         <Route exact path='/settings' component={Settings}/>
-                        <Route exact path='/login' component={LoginPage}/>
+                        <Route exact path='/login' compo nent={LoginPage}/>
                     </div>
                     <Footer/>
                 </div>

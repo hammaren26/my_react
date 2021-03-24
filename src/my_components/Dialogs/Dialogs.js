@@ -8,7 +8,11 @@ import {Field, reduxForm} from "redux-form";
 export const AddMessageForm = (props) => {
     return (
         <form onSubmit={props.handleSubmit}>
-            <Field component='textarea' name='newMessageElement' placeholder='Enter your message'/>
+            <Field
+                component='textarea'
+                name='newMessageElement'
+                placeholder='Enter your message'
+            />
             <button>Add message</button>
         </form>
     )
@@ -29,6 +33,7 @@ const Dialogs = (props) => {
             />
         )
     });
+
     let messagesElements = props.messagesData.map(message => {
         return (
             <Message
@@ -38,18 +43,7 @@ const Dialogs = (props) => {
         )
     });
 
-    // let addMessage = () => {
-    //     let text = newMessageElement.current.value;
-    //     props.addMessage(text);
-    // }
-    //
-    // let updateNewMessageText = () => {
-    //     let text = newMessageElement.current.value;
-    //     props.updateNewMessageText(text);
-    // }
-
     let addNewMessage = (values) => {
-        console.log(values)
         props.addMessage(values.newMessageElement);
     }
 
